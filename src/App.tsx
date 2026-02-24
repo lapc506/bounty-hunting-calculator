@@ -18,7 +18,7 @@ interface ChartData {
 }
 
 const App = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
   const [markup, setMarkup] = useState(30); 
   const [monthlyInterest, setMonthlyInterest] = useState(1.5); // Ahora es Interés Mensual
   const [gracePeriodWeeks, setGracePeriodWeeks] = useState(24); // Plazo en semanas
@@ -384,8 +384,8 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl border border-slate-200">
-              <h3 className="font-bold text-slate-700 mb-6 flex items-center gap-2">
+            <div className={`${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} p-8 rounded-3xl border`}>
+              <h3 className={`font-bold mb-6 flex items-center gap-2 ${isDark ? 'text-slate-100' : 'text-slate-700'}`}>
                 <TrendingUp size={20} className="text-blue-500" /> Proyección de Pasivos (Resolución Semanal)
               </h3>
               <div className="h-[300px]">
@@ -397,11 +397,11 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                         <stop offset="95%" stopColor={mode === 'agentic' ? "#8b5cf6" : "#475569"} stopOpacity={0}/>
                       </linearGradient>
                     </defs>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                    <XAxis dataKey="periodo" axisLine={false} tickLine={false} tick={{fontSize: 10}} />
-                    <YAxis axisLine={false} tickLine={false} tick={{fontSize: 10}} />
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDark ? "#475569" : "#f1f5f9"} />
+                    <XAxis dataKey="periodo" axisLine={false} tickLine={false} tick={{fontSize: 10, fill: isDark ? "#94a3b8" : "#64748b"}} />
+                    <YAxis axisLine={false} tickLine={false} tick={{fontSize: 10, fill: isDark ? "#94a3b8" : "#64748b"}} />
                     <Tooltip 
-                      contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}
+                      contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', backgroundColor: isDark ? '#1e293b' : '#ffffff', color: isDark ? '#e2e8f0' : '#000000' }}
                       formatter={(val) => [`$${(val as number).toLocaleString()}`, "Monto"]}
                     />
                     <Area 
