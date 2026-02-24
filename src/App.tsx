@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Calculator, Target, ShieldCheck, TrendingUp, AlertCircle, FileText, Coins, Zap, Cpu, MousePointer2, Plus, Trash2, Copy } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { Target, TrendingUp, FileText, Coins, Zap, Cpu, MousePointer2, Plus, Trash2, Copy } from 'lucide-react';
 
 interface Bounty {
   id: number;
