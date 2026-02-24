@@ -1,0 +1,28 @@
+{
+  "color": {
+    "border": {
+      "light": { "value": "#e2e8f0", "type": "color", "$comments": "Light mode border color (slate-200)" },
+      "dark": { "value": "#334155", "type": "color", "$comments": "Dark mode border color (slate-700)" }
+    },
+    "background": {
+      "primary": {
+        "light": { "value": "#ffffff", "type": "color", "$comments": "Light mode primary bg" },
+        "dark": { "value": "#1e293b", "type": "color", "$comments": "Dark mode primary bg (slate-800)" }
+      },
+      "secondary": {
+        "light": { "value": "#f1f5f9", "type": "color", "$comments": "Light mode secondary bg" },
+        "dark": { "value": "#0f172a", "type": "color", "$comments": "Dark mode secondary bg (slate-900)" }
+      }
+    },
+    "text": {
+      "primary": {
+        "light": { "value": "#0f172a", "type": "color", "$comments": "Light mode primary text" },
+        "dark": { "value": "#f1f5f9", "type": "color", "$comments": "Dark mode primary text" }
+      },
+      "secondary": {
+        "light": { "value": "#475569", "type": "color", "$comments": "Light mode secondary text (slate-600)" },
+        "dark": { "value": "#cbd5e1", "type": "color", "$comments": "Dark mode secondary text (slate-300)" }
+      }
+    }
+  }
+}

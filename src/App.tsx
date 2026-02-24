@@ -268,12 +268,12 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                               onChange={(e) => updateBountyValue(b.id, Number(e.target.value))}
                               onBlur={() => toggleEditValue(b.id)}
                               autoFocus
-                              className="w-20 px-2 py-1 text-xs bg-white border border-blue-400 rounded outline-none focus:ring-1 focus:ring-blue-500"
+                              className={`w-20 px-2 py-1 text-xs rounded outline-none focus:ring-1 focus:ring-blue-500 border ${isDark ? 'bg-slate-600 text-slate-100 border-blue-500' : 'bg-white text-slate-900 border-blue-400'}`}
                             />
                           ) : (
                             <span 
                               onClick={() => toggleEditValue(b.id)}
-                              className="cursor-pointer px-2 py-1 rounded hover:bg-blue-100 transition-colors"
+                              className={`cursor-pointer px-2 py-1 rounded transition-colors ${isDark ? 'hover:bg-slate-600' : 'hover:bg-blue-100'}`}
                             >
                               ${b.value.toLocaleString()} USD
                             </span>
@@ -287,12 +287,12 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                               onChange={(e) => updateBountyWeeks(b.id, Number(e.target.value))}
                               onBlur={() => toggleEditWeeks(b.id)}
                               autoFocus
-                              className="w-16 px-2 py-1 text-xs bg-white border border-blue-400 rounded outline-none focus:ring-1 focus:ring-blue-500"
+                              className={`w-16 px-2 py-1 text-xs rounded outline-none focus:ring-1 focus:ring-blue-500 border ${isDark ? 'bg-slate-600 text-slate-100 border-blue-500' : 'bg-white text-slate-900 border-blue-400'}`}
                             />
                           ) : (
                             <span 
                               onClick={() => toggleEditWeeks(b.id)}
-                              className="cursor-pointer px-2 py-1 rounded text-blue-600 font-medium hover:bg-blue-100 transition-colors"
+                              className={`cursor-pointer px-2 py-1 rounded font-medium transition-colors ${isDark ? 'text-blue-400 hover:bg-slate-600' : 'text-blue-600 hover:bg-blue-100'}`}
                             >
                               {b.weeks} sem {mode === 'manual' ? `→ ${(b.weeks * agenticEfficiency).toFixed(1)} real` : '(⚡)'}
                             </span>
@@ -362,23 +362,23 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
           {/* Columna Derecha: Gráfica y Contrato */}
           <div className="lg:col-span-8 space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className={`${isDark ? 'bg-slate-900 shadow-lg border-slate-700' : 'bg-slate-900'} p-6 rounded-3xl text-white shadow-xl relative overflow-hidden`}>
-                <div className="absolute -right-4 -top-4 text-white/5"><Coins size={100} /></div>
-                <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Deuda Final Proyectada</p>
-                <h2 className={`text-3xl font-bold text-yellow-400`}>${finalDebt.toLocaleString()}</h2>
-                <p className={`text-[10px] mt-2 ${isDark ? 'text-slate-400' : 'text-slate-400'}`}>Nominal: ${nominalTotal.toLocaleString()} USD</p>
+              <div className={`${isDark ? 'bg-slate-900 shadow-lg border-slate-700' : 'bg-slate-50 border-slate-200'} p-6 rounded-3xl ${isDark ? 'text-white' : 'text-slate-900'} shadow-xl relative overflow-hidden border`}>
+                <div className={`absolute -right-4 -top-4 ${isDark ? 'text-white/5' : 'text-slate-900/5'}`}><Coins size={100} /></div>
+                <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Deuda Final Proyectada</p>
+                <h2 className={`text-3xl font-bold ${isDark ? 'text-yellow-400' : 'text-yellow-600'}`}>${finalDebt.toLocaleString()}</h2>
+                <p className={`text-[10px] mt-2 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Nominal: ${nominalTotal.toLocaleString()} USD</p>
               </div>
-              <div className="bg-white p-6 rounded-3xl border border-slate-200">
-                <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Diferencia x Riesgo</p>
-                <h2 className="text-3xl font-bold text-green-600">+${(finalDebt - nominalTotal).toLocaleString()}</h2>
-                <p className={`text-[10px] mt-2 ${isDark ? 'text-slate-400 font-medium' : 'text-slate-500 font-medium'}`}>Markup + Interés Mensual</p>
+              <div className={`${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} p-6 rounded-3xl border`}>
+                <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Diferencia x Riesgo</p>
+                <h2 className={`text-3xl font-bold ${isDark ? 'text-green-400' : 'text-green-600'}`}>+${(finalDebt - nominalTotal).toLocaleString()}</h2>
+                <p className={`text-[10px] mt-2 font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Markup + Interés Mensual</p>
               </div>
-              <div className="bg-white p-6 rounded-3xl border border-slate-200">
-                <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Cierre de Entregas</p>
-                <h2 className={`text-3xl font-bold ${mode === 'agentic' ? "text-purple-600" : "text-slate-700"}`}>
+              <div className={`${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} p-6 rounded-3xl border`}>
+                <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Cierre de Entregas</p>
+                <h2 className={`text-3xl font-bold ${mode === 'agentic' ? (isDark ? "text-purple-400" : "text-purple-600") : (isDark ? "text-slate-300" : "text-slate-700")}`}>
                   {estimatedDeliveryWeeks.toFixed(1)} <span className="text-lg">Sem</span>
                 </h2>
-                <p className="text-[10px] mt-2 text-slate-500">
+                <p className={`text-[10px] mt-2 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                   {mode === 'agentic' ? `Ahorras ${(manualTotalWeeks - estimatedDeliveryWeeks).toFixed(1)} semanas vs manual` : `Semanas efectivas de código`}
                 </p>
               </div>
