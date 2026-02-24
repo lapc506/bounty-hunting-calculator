@@ -219,8 +219,8 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Columna Izquierda: Gestión de Bounties */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
-              <h3 className="font-bold mb-4 flex items-center justify-between">
+            <div className={`${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} p-6 rounded-3xl shadow-sm border`}>
+              <h3 className={`font-bold mb-4 flex items-center justify-between ${isDark ? 'text-slate-100' : ''}`}>
                 <span>Configuración del Pool</span>
                 <Coins size={18} className="text-yellow-500" />
               </h3>
@@ -228,7 +228,7 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                 <div className="flex flex-wrap gap-2">
                   <input 
                     placeholder="Nombre del Bounty"
-                    className="w-full md:flex-1 p-2 text-sm bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
+                    className={`w-full md:flex-1 p-2 text-sm rounded-lg outline-none focus:ring-2 focus:ring-blue-500 ${isDark ? 'bg-slate-700 border-slate-600 text-slate-100' : 'bg-slate-50 border-slate-200'} border`}
                     value={newBountyName}
                     onChange={(e) => setNewBountyName(e.target.value)}
                   />
@@ -237,7 +237,7 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                       type="number"
                       placeholder="USD"
                       title="Monto del hito en USD"
-                      className="w-24 p-2 text-sm bg-slate-50 border border-slate-200 rounded-lg"
+                      className={`w-24 p-2 text-sm rounded-lg ${isDark ? 'bg-slate-700 border-slate-600 text-slate-100' : 'bg-slate-50 border-slate-200'} border`}
                       value={newBountyValue}
                       onChange={(e) => setNewBountyValue(Number(e.target.value))}
                     />
@@ -246,7 +246,7 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                       step="0.5"
                       placeholder="Sem"
                       title="Duración Base (Semanas)"
-                      className="w-16 p-2 text-sm bg-slate-50 border border-slate-200 rounded-lg"
+                      className={`w-16 p-2 text-sm rounded-lg ${isDark ? 'bg-slate-700 border-slate-600 text-slate-100' : 'bg-slate-50 border-slate-200'} border`}
                       value={newBountyWeeks}
                       onChange={(e) => setNewBountyWeeks(Number(e.target.value))}
                     />
@@ -257,9 +257,9 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                 </div>
                 <div className="max-h-[300px] overflow-y-auto space-y-2 pr-2">
                   {bounties.map((b) => (
-                    <div key={b.id} className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-100 group hover:border-blue-300 transition-colors">
-                      <div className="text-xs flex-1">
-                        <p className="font-bold text-slate-700">{b.name}</p>
+                    <div key={b.id} className={`flex items-center justify-between p-3 rounded-xl group transition-colors ${isDark ? 'bg-slate-700 border-slate-600 hover:border-slate-500' : 'bg-slate-50 border-slate-100 hover:border-blue-300'} border`}>
+                      <div className={`text-xs flex-1 ${isDark ? 'text-slate-300' : ''}`}>
+                        <p className={`font-bold ${isDark ? 'text-slate-100' : 'text-slate-700'}`}>{b.name}</p>
                         <div className="flex items-center gap-2 mt-1 flex-wrap">
                           {b.editingValue ? (
                             <input 
@@ -308,8 +308,8 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
-              <h3 className="font-bold text-slate-800 flex items-center gap-2">
+            <div className={`${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} p-6 rounded-3xl shadow-sm border space-y-6`}>
+              <h3 className={`font-bold flex items-center gap-2 ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
                 <Target size={18} className="text-blue-600" /> Parámetros de Riesgo
               </h3>
               <div>
@@ -362,16 +362,16 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
           {/* Columna Derecha: Gráfica y Contrato */}
           <div className="lg:col-span-8 space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-slate-900 p-6 rounded-3xl text-white shadow-xl relative overflow-hidden">
+              <div className={`${isDark ? 'bg-slate-900 shadow-lg border-slate-700' : 'bg-slate-900'} p-6 rounded-3xl text-white shadow-xl relative overflow-hidden`}>
                 <div className="absolute -right-4 -top-4 text-white/5"><Coins size={100} /></div>
                 <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Deuda Final Proyectada</p>
-                <h2 className="text-3xl font-bold text-yellow-400">${finalDebt.toLocaleString()}</h2>
-                <p className="text-[10px] mt-2 text-slate-400">Nominal: ${nominalTotal.toLocaleString()} USD</p>
+                <h2 className={`text-3xl font-bold text-yellow-400`}>${finalDebt.toLocaleString()}</h2>
+                <p className={`text-[10px] mt-2 ${isDark ? 'text-slate-400' : 'text-slate-400'}`}>Nominal: ${nominalTotal.toLocaleString()} USD</p>
               </div>
               <div className="bg-white p-6 rounded-3xl border border-slate-200">
                 <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Diferencia x Riesgo</p>
                 <h2 className="text-3xl font-bold text-green-600">+${(finalDebt - nominalTotal).toLocaleString()}</h2>
-                <p className="text-[10px] mt-2 text-slate-500 font-medium">Markup + Interés Mensual</p>
+                <p className={`text-[10px] mt-2 ${isDark ? 'text-slate-400 font-medium' : 'text-slate-500 font-medium'}`}>Markup + Interés Mensual</p>
               </div>
               <div className="bg-white p-6 rounded-3xl border border-slate-200">
                 <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Cierre de Entregas</p>
