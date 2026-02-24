@@ -303,6 +303,7 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                   onChange={(e) => setAgenticEfficiency(Number(e.target.value))}
                   className="w-full h-1.5 bg-purple-100 rounded-lg appearance-none cursor-pointer accent-purple-600"
                 />
+                <p className="text-[11px] text-slate-500 mt-2 leading-relaxed">Multiplicador de velocidad vs desarrollo artesanal. Comprime el tiempo de entrega (ej. de 4 sem → 1 sem = 4x). Premia el GTM acelerado sin descontar valor nominal.</p>
               </div>
               <div>
                 <label className="block text-xs font-bold text-slate-500 uppercase mb-2 flex justify-between">
@@ -313,6 +314,7 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                   onChange={(e) => setMarkup(Number(e.target.value))}
                   className="w-full h-1.5 bg-blue-100 rounded-lg appearance-none cursor-pointer accent-blue-600"
                 />
+                <p className="text-[11px] text-slate-500 mt-2 leading-relaxed">Sobreprecio por riesgo de impago (prima de seguro). Compensa que el Hunter acepta pago diferido sin colateral inmediato. Se aplica al momento del merge.</p>
               </div>
               <div>
                 <label className="block text-xs font-bold text-slate-500 uppercase mb-2 flex justify-between">
@@ -323,6 +325,7 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                   onChange={(e) => setMonthlyInterest(Number(e.target.value))}
                   className="w-full h-1.5 bg-green-100 rounded-lg appearance-none cursor-pointer accent-green-600"
                 />
+                <p className="text-[11px] text-slate-500 mt-2 leading-relaxed">Costo del dinero por tiempo. Se aplica sobre la deuda acumulada (Principal + Markup) desde merge. Protege al Hunter contra inflación e incentiva liquidación rápida.</p>
               </div>
               <div>
                 <label className="block text-xs font-bold text-slate-500 uppercase mb-2 flex justify-between">
@@ -333,6 +336,7 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                   onChange={(e) => setGracePeriodWeeks(Number(e.target.value))}
                   className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-600"
                 />
+                <p className="text-[11px] text-slate-500 mt-2 leading-relaxed">Horizonte de planificación para flujo de caja. Define cuándo la Startup espera tener capital para liquidar pasivos. Herramienta para calcular reserva necesaria de próxima ronda.</p>
               </div>
             </div>
           </div>
