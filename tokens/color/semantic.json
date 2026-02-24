@@ -1,28 +1,48 @@
 {
   "color": {
-    "border": {
-      "light": { "value": "#e2e8f0", "type": "color", "$comments": "Light mode border color (slate-200)" },
-      "dark": { "value": "#334155", "type": "color", "$comments": "Dark mode border color (slate-700)" }
+    "light": {
+      "primary": { "value": "{color.md3.primary.40}", "type": "color", "$comments": "Light mode primary color" },
+      "onPrimary": { "value": "{color.md3.primary.100}", "type": "color", "$comments": "Light mode text on primary" },
+      "primaryContainer": { "value": "{color.md3.primary.90}", "type": "color", "$comments": "Light mode primary container" },
+      "onPrimaryContainer": { "value": "{color.md3.primary.10}", "type": "color", "$comments": "Light mode text on primary container" },
+      "secondary": { "value": "{color.md3.secondary.40}", "type": "color", "$comments": "Light mode secondary color" },
+      "onSecondary": { "value": "{color.md3.secondary.100}", "type": "color", "$comments": "Light mode text on secondary" },
+      "secondaryContainer": { "value": "{color.md3.secondary.90}", "type": "color", "$comments": "Light mode secondary container" },
+      "onSecondaryContainer": { "value": "{color.md3.secondary.10}", "type": "color", "$comments": "Light mode text on secondary container" },
+      "tertiary": { "value": "{color.md3.tertiary.40}", "type": "color", "$comments": "Light mode tertiary color" },
+      "onTertiary": { "value": "{color.md3.tertiary.100}", "type": "color", "$comments": "Light mode text on tertiary" },
+      "tertiaryContainer": { "value": "{color.md3.tertiary.90}", "type": "color", "$comments": "Light mode tertiary container" },
+      "onTertiaryContainer": { "value": "{color.md3.tertiary.10}", "type": "color", "$comments": "Light mode text on tertiary container" },
+      "background": { "value": "{color.md3.neutral.99}", "type": "color", "$comments": "Light mode background" },
+      "onBackground": { "value": "{color.md3.neutral.10}", "type": "color", "$comments": "Light mode text on background" },
+      "surface": { "value": "{color.md3.neutral.99}", "type": "color", "$comments": "Light mode surface" },
+      "onSurface": { "value": "{color.md3.neutral.10}", "type": "color", "$comments": "Light mode text on surface" },
+      "surfaceVariant": { "value": "{color.md3.neutral.90}", "type": "color", "$comments": "Light mode surface variant" },
+      "onSurfaceVariant": { "value": "{color.md3.neutral.30}", "type": "color", "$comments": "Light mode text on surface variant" },
+      "outline": { "value": "{color.md3.neutral.50}", "type": "color", "$comments": "Light mode outline" },
+      "outlineVariant": { "value": "{color.md3.neutral.80}", "type": "color", "$comments": "Light mode outline variant" }
     },
-    "background": {
-      "primary": {
-        "light": { "value": "#ffffff", "type": "color", "$comments": "Light mode primary bg" },
-        "dark": { "value": "#1e293b", "type": "color", "$comments": "Dark mode primary bg (slate-800)" }
-      },
-      "secondary": {
-        "light": { "value": "#f1f5f9", "type": "color", "$comments": "Light mode secondary bg" },
-        "dark": { "value": "#0f172a", "type": "color", "$comments": "Dark mode secondary bg (slate-900)" }
-      }
-    },
-    "text": {
-      "primary": {
-        "light": { "value": "#0f172a", "type": "color", "$comments": "Light mode primary text" },
-        "dark": { "value": "#f1f5f9", "type": "color", "$comments": "Dark mode primary text" }
-      },
-      "secondary": {
-        "light": { "value": "#475569", "type": "color", "$comments": "Light mode secondary text (slate-600)" },
-        "dark": { "value": "#cbd5e1", "type": "color", "$comments": "Dark mode secondary text (slate-300)" }
-      }
+    "dark": {
+      "primary": { "value": "{color.md3.primary.80}", "type": "color", "$comments": "Dark mode primary color" },
+      "onPrimary": { "value": "{color.md3.primary.20}", "type": "color", "$comments": "Dark mode text on primary" },
+      "primaryContainer": { "value": "{color.md3.primary.30}", "type": "color", "$comments": "Dark mode primary container" },
+      "onPrimaryContainer": { "value": "{color.md3.primary.90}", "type": "color", "$comments": "Dark mode text on primary container" },
+      "secondary": { "value": "{color.md3.secondary.80}", "type": "color", "$comments": "Dark mode secondary color" },
+      "onSecondary": { "value": "{color.md3.secondary.20}", "type": "color", "$comments": "Dark mode text on secondary" },
+      "secondaryContainer": { "value": "{color.md3.secondary.30}", "type": "color", "$comments": "Dark mode secondary container" },
+      "onSecondaryContainer": { "value": "{color.md3.secondary.90}", "type": "color", "$comments": "Dark mode text on secondary container" },
+      "tertiary": { "value": "{color.md3.tertiary.80}", "type": "color", "$comments": "Dark mode tertiary color" },
+      "onTertiary": { "value": "{color.md3.tertiary.20}", "type": "color", "$comments": "Dark mode text on tertiary" },
+      "tertiaryContainer": { "value": "{color.md3.tertiary.30}", "type": "color", "$comments": "Dark mode tertiary container" },
+      "onTertiaryContainer": { "value": "{color.md3.tertiary.90}", "type": "color", "$comments": "Dark mode text on tertiary container" },
+      "background": { "value": "{color.md3.neutral.10}", "type": "color", "$comments": "Dark mode background" },
+      "onBackground": { "value": "{color.md3.neutral.90}", "type": "color", "$comments": "Dark mode text on background" },
+      "surface": { "value": "{color.md3.neutral.10}", "type": "color", "$comments": "Dark mode surface" },
+      "onSurface": { "value": "{color.md3.neutral.90}", "type": "color", "$comments": "Dark mode text on surface" },
+      "surfaceVariant": { "value": "{color.md3.neutral.30}", "type": "color", "$comments": "Dark mode surface variant" },
+      "onSurfaceVariant": { "value": "{color.md3.neutral.80}", "type": "color", "$comments": "Dark mode text on surface variant" },
+      "outline": { "value": "{color.md3.neutral.60}", "type": "color", "$comments": "Dark mode outline" },
+      "outlineVariant": { "value": "{color.md3.neutral.30}", "type": "color", "$comments": "Dark mode outline variant" }
     }
   }
 }
