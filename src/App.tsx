@@ -187,29 +187,29 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
   };
 
   return (
-    <div className={`min-h-screen ${isDark ? 'dark bg-slate-900 text-slate-100' : 'bg-slate-50 text-slate-800'} p-4 md:p-8 font-sans transition-colors duration-300`}>
+    <div className={`min-h-screen ${isDark ? 'dark bg-[#0f172a] text-[#e8f1ff]' : 'bg-[#f0f8ff] text-[#0f172a]'} p-4 md:p-8 font-sans transition-colors duration-300`}>
       <div className="max-w-7xl mx-auto">
-        <header className={`mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6 ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} p-6 rounded-3xl shadow-sm border`}>
+        <header className={`mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6 ${isDark ? 'bg-[#1a2640] border-[#2d3f52]' : 'bg-white border-[#bae6fd]'} p-6 rounded-3xl shadow-sm border`}>
           <div>
-            <h1 className={`text-3xl font-bold flex items-center gap-2 ${isDark ? 'text-slate-100' : 'text-slate-900'}`}>
+            <h1 className={`text-3xl font-bold flex items-center gap-2 ${isDark ? 'text-[#e8f1ff]' : 'text-[#0f172a]'}`}>
               <Cpu className={mode === 'agentic' ? "text-purple-600" : "text-slate-500"} size={32} />
               Bounty Hunting Calculator
             </h1>
-            <p className={`${isDark ? 'text-slate-400' : 'text-slate-600'} mt-1`}>Valuación de bounties atómicos con pago diferido</p>
+            <p className={`${isDark ? 'text-[#a8b8d0]' : 'text-[#64748b]'} mt-1`}>Valuación de bounties atómicos con pago diferido</p>
           </div>
           <div className="flex gap-2">
             <button 
               onClick={() => setIsDark(!isDark)}
-              className={`p-2 rounded-xl transition-all ${isDark ? 'bg-slate-700 text-yellow-400 hover:bg-slate-600' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
+              className={`p-2 rounded-xl transition-all ${isDark ? 'bg-[#263345] text-yellow-400 hover:bg-[#2d3f52]' : 'bg-[#e0f2fe] text-[#0f172a] hover:bg-[#bae6fd]'}`}
               title={isDark ? "Modo claro" : "Modo oscuro"}
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <div className={`flex p-1 ${isDark ? 'bg-slate-700 border-slate-600' : 'bg-slate-100 border-slate-200'} rounded-2xl w-fit border`}>
-              <button onClick={() => setMode('manual')} className={`flex items-center gap-2 px-6 py-2 rounded-xl transition-all font-bold ${mode === 'manual' ? (isDark ? 'bg-slate-600 text-white shadow-sm' : 'bg-white text-slate-900 shadow-sm') : (isDark ? 'text-slate-400' : 'text-slate-500')}`}>
+            <div className={`flex p-1 ${isDark ? 'bg-[#263345] border-[#2d3f52]' : 'bg-[#e0f2fe] border-[#bae6fd]'} rounded-2xl w-fit border`}>
+              <button onClick={() => setMode('manual')} className={`flex items-center gap-2 px-6 py-2 rounded-xl transition-all font-bold ${mode === 'manual' ? (isDark ? 'bg-[#3d4f63] text-white shadow-sm' : 'bg-white text-[#0f172a] shadow-sm') : (isDark ? 'text-[#a8b8d0]' : 'text-[#64748b]')}`}>
                 <MousePointer2 size={16} /> Artesanal
               </button>
-              <button onClick={() => setMode('agentic')} className={`flex items-center gap-2 px-6 py-2 rounded-xl transition-all font-bold ${mode === 'agentic' ? 'bg-purple-600 text-white shadow-sm' : (isDark ? 'text-slate-400' : 'text-slate-500')}`}>
+              <button onClick={() => setMode('agentic')} className={`flex items-center gap-2 px-6 py-2 rounded-xl transition-all font-bold ${mode === 'agentic' ? 'bg-[#7c5cef] text-white shadow-sm' : (isDark ? 'text-[#a8b8d0]' : 'text-[#64748b]')}`}>
                 <Zap size={16} /> Agéntico
               </button>
             </div>
@@ -219,8 +219,8 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Columna Izquierda: Gestión de Bounties */}
           <div className="lg:col-span-4 space-y-6">
-            <div className={`${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} p-6 rounded-3xl shadow-sm border`}>
-              <h3 className={`font-bold mb-4 flex items-center justify-between ${isDark ? 'text-slate-100' : ''}`}>
+            <div className={`${isDark ? 'bg-[#1a2640] border-[#2d3f52]' : 'bg-white border-[#bae6fd]'} p-6 rounded-3xl shadow-sm border`}>
+              <h3 className={`font-bold mb-4 flex items-center justify-between ${isDark ? 'text-[#e8f1ff]' : ''}`}>
                 <span>Configuración del Pool</span>
                 <Coins size={18} className="text-yellow-500" />
               </h3>
@@ -228,7 +228,7 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                 <div className="flex flex-wrap gap-2">
                   <input 
                     placeholder="Nombre del Bounty"
-                    className={`w-full md:flex-1 p-2 text-sm rounded-lg outline-none focus:ring-2 focus:ring-blue-500 ${isDark ? 'bg-slate-700 border-slate-600 text-slate-100' : 'bg-slate-50 border-slate-200'} border`}
+                    className={`w-full md:flex-1 p-2 text-sm rounded-lg outline-none focus:ring-2 focus:ring-blue-500 ${isDark ? 'bg-[#263345] border-[#2d3f52] text-[#e8f1ff]' : 'bg-[#f0f8ff] border-[#bae6fd]'} border`}
                     value={newBountyName}
                     onChange={(e) => setNewBountyName(e.target.value)}
                   />
@@ -237,7 +237,7 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                       type="number"
                       placeholder="USD"
                       title="Monto del hito en USD"
-                      className={`w-24 p-2 text-sm rounded-lg ${isDark ? 'bg-slate-700 border-slate-600 text-slate-100' : 'bg-slate-50 border-slate-200'} border`}
+                      className={`w-24 p-2 text-sm rounded-lg ${isDark ? 'bg-[#263345] border-[#2d3f52] text-[#e8f1ff]' : 'bg-[#f0f8ff] border-[#bae6fd]'} border`}
                       value={newBountyValue}
                       onChange={(e) => setNewBountyValue(Number(e.target.value))}
                     />
@@ -246,7 +246,7 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                       step="0.5"
                       placeholder="Sem"
                       title="Duración Base (Semanas)"
-                      className={`w-16 p-2 text-sm rounded-lg ${isDark ? 'bg-slate-700 border-slate-600 text-slate-100' : 'bg-slate-50 border-slate-200'} border`}
+                      className={`w-16 p-2 text-sm rounded-lg ${isDark ? 'bg-[#263345] border-[#2d3f52] text-[#e8f1ff]' : 'bg-[#f0f8ff] border-[#bae6fd]'} border`}
                       value={newBountyWeeks}
                       onChange={(e) => setNewBountyWeeks(Number(e.target.value))}
                     />
@@ -257,9 +257,9 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                 </div>
                 <div className="max-h-[300px] overflow-y-auto space-y-2 pr-2">
                   {bounties.map((b) => (
-                    <div key={b.id} className={`flex items-center justify-between p-3 rounded-xl group transition-colors ${isDark ? 'bg-slate-700 border-slate-600 hover:border-slate-500' : 'bg-slate-50 border-slate-100 hover:border-blue-300'} border`}>
-                      <div className={`text-xs flex-1 ${isDark ? 'text-slate-300' : ''}`}>
-                        <p className={`font-bold ${isDark ? 'text-slate-100' : 'text-slate-700'}`}>{b.name}</p>
+                    <div key={b.id} className={`flex items-center justify-between p-3 rounded-xl group transition-colors ${isDark ? 'bg-[#263345] border-[#2d3f52] hover:border-[#3d4f63]' : 'bg-[#f0f8ff] border-[#e0f2fe] hover:border-[#00adee]'} border`}>
+                      <div className={`text-xs flex-1 ${isDark ? 'text-[#a8b8d0]' : ''}`}>
+                        <p className={`font-bold ${isDark ? 'text-[#e8f1ff]' : 'text-[#0f172a]'}`}>{b.name}</p>
                         <div className="flex items-center gap-2 mt-1 flex-wrap">
                           {b.editingValue ? (
                             <input 
@@ -268,12 +268,12 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                               onChange={(e) => updateBountyValue(b.id, Number(e.target.value))}
                               onBlur={() => toggleEditValue(b.id)}
                               autoFocus
-                              className={`w-20 px-2 py-1 text-xs rounded outline-none focus:ring-1 focus:ring-blue-500 border ${isDark ? 'bg-slate-600 text-slate-100 border-blue-500' : 'bg-white text-slate-900 border-blue-400'}`}
+                              className={`w-20 px-2 py-1 text-xs rounded outline-none focus:ring-1 focus:ring-blue-500 border ${isDark ? 'bg-[#3d4f63] text-[#e8f1ff] border-blue-500' : 'bg-white text-[#0f172a] border-blue-400'}`}
                             />
                           ) : (
                             <span 
                               onClick={() => toggleEditValue(b.id)}
-                              className={`cursor-pointer px-2 py-1 rounded transition-colors ${isDark ? 'hover:bg-slate-600' : 'hover:bg-blue-100'}`}
+                              className={`cursor-pointer px-2 py-1 rounded transition-colors ${isDark ? 'hover:bg-[#3d4f63]' : 'hover:bg-blue-100'}`}
                             >
                               ${b.value.toLocaleString()} USD
                             </span>
@@ -287,12 +287,12 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                               onChange={(e) => updateBountyWeeks(b.id, Number(e.target.value))}
                               onBlur={() => toggleEditWeeks(b.id)}
                               autoFocus
-                              className={`w-16 px-2 py-1 text-xs rounded outline-none focus:ring-1 focus:ring-blue-500 border ${isDark ? 'bg-slate-600 text-slate-100 border-blue-500' : 'bg-white text-slate-900 border-blue-400'}`}
+                              className={`w-16 px-2 py-1 text-xs rounded outline-none focus:ring-1 focus:ring-blue-500 border ${isDark ? 'bg-[#3d4f63] text-[#e8f1ff] border-blue-500' : 'bg-white text-[#0f172a] border-blue-400'}`}
                             />
                           ) : (
                             <span 
                               onClick={() => toggleEditWeeks(b.id)}
-                              className={`cursor-pointer px-2 py-1 rounded font-medium transition-colors ${isDark ? 'text-blue-400 hover:bg-slate-600' : 'text-blue-600 hover:bg-blue-100'}`}
+                              className={`cursor-pointer px-2 py-1 rounded font-medium transition-colors ${isDark ? 'text-blue-400 hover:bg-[#3d4f63]' : 'text-blue-600 hover:bg-blue-100'}`}
                             >
                               {b.weeks} sem {mode === 'manual' ? `→ ${(b.weeks * agenticEfficiency).toFixed(1)} real` : '(⚡)'}
                             </span>
@@ -308,8 +308,8 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
               </div>
             </div>
 
-            <div className={`${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} p-6 rounded-3xl shadow-sm border space-y-6`}>
-              <h3 className={`font-bold flex items-center gap-2 ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
+            <div className={`${isDark ? 'bg-[#1a2640] border-[#2d3f52]' : 'bg-white border-[#bae6fd]'} p-6 rounded-3xl shadow-sm border space-y-6`}>
+              <h3 className={`font-bold flex items-center gap-2 ${isDark ? 'text-[#e8f1ff]' : 'text-[#0f172a]'}`}>
                 <Target size={18} className="text-blue-600" /> Parámetros de Riesgo
               </h3>
               <div>
@@ -362,30 +362,30 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
           {/* Columna Derecha: Gráfica y Contrato */}
           <div className="lg:col-span-8 space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className={`${isDark ? 'bg-slate-900 shadow-lg border-slate-700' : 'bg-slate-50 border-slate-200'} p-6 rounded-3xl ${isDark ? 'text-white' : 'text-slate-900'} shadow-xl relative overflow-hidden border`}>
-                <div className={`absolute -right-4 -top-4 ${isDark ? 'text-white/5' : 'text-slate-900/5'}`}><Coins size={100} /></div>
-                <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Deuda Final Proyectada</p>
+              <div className={`${isDark ? 'bg-[#0f172a] shadow-lg border-[#2d3f52]' : 'bg-[#f0f8ff] border-[#bae6fd]'} p-6 rounded-3xl ${isDark ? 'text-white' : 'text-[#0f172a]'} shadow-xl relative overflow-hidden border`}>
+                <div className={`absolute -right-4 -top-4 ${isDark ? 'text-white/5' : 'text-[#0f172a]/5'}`}><Coins size={100} /></div>
+                <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${isDark ? 'text-[#a8b8d0]' : 'text-[#64748b]'}`}>Deuda Final Proyectada</p>
                 <h2 className={`text-3xl font-bold ${isDark ? 'text-yellow-400' : 'text-yellow-600'}`}>${finalDebt.toLocaleString()}</h2>
-                <p className={`text-[10px] mt-2 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Nominal: ${nominalTotal.toLocaleString()} USD</p>
+                <p className={`text-[10px] mt-2 ${isDark ? 'text-[#a8b8d0]' : 'text-[#64748b]'}`}>Nominal: ${nominalTotal.toLocaleString()} USD</p>
               </div>
-              <div className={`${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} p-6 rounded-3xl border`}>
-                <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Diferencia x Riesgo</p>
+              <div className={`${isDark ? 'bg-[#1a2640] border-[#2d3f52]' : 'bg-white border-[#bae6fd]'} p-6 rounded-3xl border`}>
+                <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${isDark ? 'text-[#a8b8d0]' : 'text-[#64748b]'}`}>Diferencia x Riesgo</p>
                 <h2 className={`text-3xl font-bold ${isDark ? 'text-green-400' : 'text-green-600'}`}>+${(finalDebt - nominalTotal).toLocaleString()}</h2>
-                <p className={`text-[10px] mt-2 font-medium ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Markup + Interés Mensual</p>
+                <p className={`text-[10px] mt-2 font-medium ${isDark ? 'text-[#a8b8d0]' : 'text-[#64748b]'}`}>Markup + Interés Mensual</p>
               </div>
-              <div className={`${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} p-6 rounded-3xl border`}>
-                <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Cierre de Entregas</p>
-                <h2 className={`text-3xl font-bold ${mode === 'agentic' ? (isDark ? "text-purple-400" : "text-purple-600") : (isDark ? "text-slate-300" : "text-slate-700")}`}>
+              <div className={`${isDark ? 'bg-[#1a2640] border-[#2d3f52]' : 'bg-white border-[#bae6fd]'} p-6 rounded-3xl border`}>
+                <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${isDark ? 'text-[#a8b8d0]' : 'text-[#64748b]'}`}>Cierre de Entregas</p>
+                <h2 className={`text-3xl font-bold ${mode === 'agentic' ? (isDark ? "text-[#a78bfa]" : "text-purple-600") : (isDark ? "text-[#a8b8d0]" : "text-[#64748b]")}`}>
                   {estimatedDeliveryWeeks.toFixed(1)} <span className="text-lg">Sem</span>
                 </h2>
-                <p className={`text-[10px] mt-2 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                <p className={`text-[10px] mt-2 ${isDark ? 'text-[#a8b8d0]' : 'text-[#64748b]'}`}>
                   {mode === 'agentic' ? `Ahorras ${(manualTotalWeeks - estimatedDeliveryWeeks).toFixed(1)} semanas vs manual` : `Semanas efectivas de código`}
                 </p>
               </div>
             </div>
 
-            <div className={`${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} p-8 rounded-3xl border`}>
-              <h3 className={`font-bold mb-6 flex items-center gap-2 ${isDark ? 'text-slate-100' : 'text-slate-700'}`}>
+            <div className={`${isDark ? 'bg-[#1a2640] border-[#2d3f52]' : 'bg-white border-[#bae6fd]'} p-8 rounded-3xl border`}>
+              <h3 className={`font-bold mb-6 flex items-center gap-2 ${isDark ? 'text-[#e8f1ff]' : 'text-[#0f172a]'}`}>
                 <TrendingUp size={20} className="text-blue-500" /> Proyección de Pasivos (Resolución Semanal)
               </h3>
               <div className="h-[300px]">
@@ -393,21 +393,21 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                   <AreaChart data={data}>
                     <defs>
                       <linearGradient id="colorDebt" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor={mode === 'agentic' ? "#8b5cf6" : "#475569"} stopOpacity={0.2}/>
-                        <stop offset="95%" stopColor={mode === 'agentic' ? "#8b5cf6" : "#475569"} stopOpacity={0}/>
+                        <stop offset="5%" stopColor={mode === 'agentic' ? "#7c5cef" : "#3d4f63"} stopOpacity={0.2}/>
+                        <stop offset="95%" stopColor={mode === 'agentic' ? "#7c5cef" : "#3d4f63"} stopOpacity={0}/>
                       </linearGradient>
                     </defs>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDark ? "#475569" : "#f1f5f9"} />
-                    <XAxis dataKey="periodo" axisLine={false} tickLine={false} tick={{fontSize: 10, fill: isDark ? "#94a3b8" : "#64748b"}} />
-                    <YAxis axisLine={false} tickLine={false} tick={{fontSize: 10, fill: isDark ? "#94a3b8" : "#64748b"}} />
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDark ? "#2d3f52" : "#e0f2fe"} />
+                    <XAxis dataKey="periodo" axisLine={false} tickLine={false} tick={{fontSize: 10, fill: isDark ? "#a8b8d0" : "#64748b"}} />
+                    <YAxis axisLine={false} tickLine={false} tick={{fontSize: 10, fill: isDark ? "#a8b8d0" : "#64748b"}} />
                     <Tooltip 
-                      contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', backgroundColor: isDark ? '#1e293b' : '#ffffff', color: isDark ? '#e2e8f0' : '#000000' }}
+                      contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', backgroundColor: isDark ? '#1a2640' : '#ffffff', color: isDark ? '#e8f1ff' : '#000000' }}
                       formatter={(val) => [`$${(val as number).toLocaleString()}`, "Monto"]}
                     />
                     <Area 
                       type="stepAfter" 
                       dataKey="deuda" 
-                      stroke={mode === 'agentic' ? "#8b5cf6" : "#475569"} 
+                      stroke={mode === 'agentic' ? "#7c5cef" : "#3d4f63"} 
                       strokeWidth={3} 
                       fill="url(#colorDebt)"
                       name="Deuda con Hunter"
@@ -415,7 +415,7 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                     <Area 
                       type="stepAfter" 
                       dataKey="nominal" 
-                      stroke="#cbd5e1" 
+                      stroke={isDark ? "#a8b8d0" : "#64748b"} 
                       strokeWidth={2} 
                       strokeDasharray="4 4" 
                       fill="transparent"
@@ -426,23 +426,23 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
               </div>
             </div>
 
-            <div className="bg-slate-900 rounded-3xl p-8 text-white relative">
+            <div className={`${isDark ? 'bg-[#1a2640]' : 'bg-[#e0f2fe]'} rounded-3xl p-8 ${isDark ? 'text-[#e8f1ff]' : 'text-[#0f172a]'} relative`}>
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-bold flex items-center gap-2">
-                  <FileText className="text-blue-400" /> Draft Contractual: {mode === 'agentic' ? "Modo Agéntico" : "Modo Artesanal"}
+                  <FileText className={isDark ? "text-[#00adee]" : "text-blue-600"} /> Draft Contractual: {mode === 'agentic' ? "Modo Agéntico" : "Modo Artesanal"}
                 </h3>
-                <button onClick={handleCopyContract} className="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-all">
+                <button onClick={handleCopyContract} className={`${isDark ? 'bg-[#263345] hover:bg-[#2d3f52]' : 'bg-[#bae6fd] hover:bg-[#a8d8f0]'} p-2 rounded-lg transition-all`}>
                   <Copy size={18} />
                 </button>
               </div>
-              <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 font-mono text-xs leading-relaxed text-slate-300 whitespace-pre-wrap">
-                <p className="mb-4 text-slate-100 font-bold">CONTRATO DE SERVICIOS PROFESIONALES CON PAGO DIFERIDO</p>
+              <div className={`${isDark ? 'bg-[#0f172a]/50 border-[#2d3f52]' : 'bg-[#ffffff] border-[#bae6fd]'} p-6 rounded-2xl border font-mono text-xs leading-relaxed ${isDark ? 'text-[#a8b8d0]' : 'text-[#0f172a]'} whitespace-pre-wrap`}>
+                <p className={`mb-4 ${isDark ? 'text-[#e8f1ff]' : 'text-[#0f172a]'} font-bold`}>CONTRATO DE SERVICIOS PROFESIONALES CON PAGO DIFERIDO</p>
                 <p className="mb-4">ENTRE: [TU NOMBRE] (El "Hunter") y [STARTUP] (La "Startup")</p>
                 <p className="mb-4">OBJETO: Desarrollo de {bounties.length} hitos tecnológicos bajo modalidad de Bounty individual.</p>
-                <div className="text-blue-300 bg-blue-900/20 p-4 rounded-lg border border-blue-800/50 mb-4">
+                <div className={`${isDark ? 'text-[#a78bfa] bg-[#7c5cef]/10 border-[#7c5cef]/30' : 'text-blue-700 bg-blue-50 border-blue-200'} p-4 rounded-lg border mb-4`}>
                   {contractTemplates[mode]}
                 </div>
-                <p>TOTAL RECONOCIDO A FECHA DE CORTE ({gracePeriodWeeks} Semanas): <span className="text-yellow-400 font-bold">${finalDebt.toLocaleString()} USD</span>.</p>
+                <p>TOTAL RECONOCIDO A FECHA DE CORTE ({gracePeriodWeeks} Semanas): <span className={`${isDark ? 'text-yellow-400' : 'text-yellow-600'} font-bold`}>${finalDebt.toLocaleString()} USD</span>.</p>
               </div>
             </div>
           </div>
