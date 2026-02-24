@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { Target, TrendingUp, FileText, Coins, Zap, Cpu, MousePointer2, Plus, Trash2, Copy } from 'lucide-react';
+import { Target, TrendingUp, FileText, Coins, Zap, Cpu, MousePointer2, Plus, Trash2, Copy, Moon, Sun } from 'lucide-react';
 
 interface Bounty {
   id: number;
@@ -18,6 +18,7 @@ interface ChartData {
 }
 
 const App = () => {
+  const [isDark, setIsDark] = useState(false);
   const [markup, setMarkup] = useState(30); 
   const [monthlyInterest, setMonthlyInterest] = useState(1.5); // Ahora es Interés Mensual
   const [gracePeriodWeeks, setGracePeriodWeeks] = useState(24); // Plazo en semanas
@@ -38,6 +39,14 @@ const App = () => {
   const [newBountyWeeks, setNewBountyWeeks] = useState(2);
 
   const [data, setData] = useState<ChartData[]>([]);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
 
   const addBounty = () => {
     if (newBountyName) {
@@ -178,23 +187,32 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans text-slate-800">
+    <div className={`min-h-screen ${isDark ? 'dark bg-slate-900 text-slate-100' : 'bg-slate-50 text-slate-800'} p-4 md:p-8 font-sans transition-colors duration-300`}>
       <div className="max-w-7xl mx-auto">
-        <header className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
+        <header className={`mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6 ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} p-6 rounded-3xl shadow-sm border`}>
           <div>
-            <h1 className="text-3xl font-bold text-slate-900 flex items-center gap-2">
+            <h1 className={`text-3xl font-bold flex items-center gap-2 ${isDark ? 'text-slate-100' : 'text-slate-900'}`}>
               <Cpu className={mode === 'agentic' ? "text-purple-600" : "text-slate-500"} size={32} />
               Bounty Hunting Calculator
             </h1>
-            <p className="text-slate-600 mt-1">Valuación de bounties atómicos con pago diferido</p>
+            <p className={`${isDark ? 'text-slate-400' : 'text-slate-600'} mt-1`}>Valuación de bounties atómicos con pago diferido</p>
           </div>
-          <div className="flex p-1 bg-slate-100 rounded-2xl w-fit border border-slate-200">
-            <button onClick={() => setMode('manual')} className={`flex items-center gap-2 px-6 py-2 rounded-xl transition-all font-bold ${mode === 'manual' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500'}`}>
-              <MousePointer2 size={16} /> Artesanal
+          <div className="flex gap-2">
+            <button 
+              onClick={() => setIsDark(!isDark)}
+              className={`p-2 rounded-xl transition-all ${isDark ? 'bg-slate-700 text-yellow-400 hover:bg-slate-600' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
+              title={isDark ? "Modo claro" : "Modo oscuro"}
+            >
+              {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <button onClick={() => setMode('agentic')} className={`flex items-center gap-2 px-6 py-2 rounded-xl transition-all font-bold ${mode === 'agentic' ? 'bg-purple-600 text-white shadow-sm' : 'text-slate-500'}`}>
-              <Zap size={16} /> Agéntico
-            </button>
+            <div className={`flex p-1 ${isDark ? 'bg-slate-700 border-slate-600' : 'bg-slate-100 border-slate-200'} rounded-2xl w-fit border`}>
+              <button onClick={() => setMode('manual')} className={`flex items-center gap-2 px-6 py-2 rounded-xl transition-all font-bold ${mode === 'manual' ? (isDark ? 'bg-slate-600 text-white shadow-sm' : 'bg-white text-slate-900 shadow-sm') : (isDark ? 'text-slate-400' : 'text-slate-500')}`}>
+                <MousePointer2 size={16} /> Artesanal
+              </button>
+              <button onClick={() => setMode('agentic')} className={`flex items-center gap-2 px-6 py-2 rounded-xl transition-all font-bold ${mode === 'agentic' ? 'bg-purple-600 text-white shadow-sm' : (isDark ? 'text-slate-400' : 'text-slate-500')}`}>
+                <Zap size={16} /> Agéntico
+              </button>
+            </div>
           </div>
         </header>
 
