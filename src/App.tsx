@@ -7,6 +7,8 @@ interface Bounty {
   name: string;
   value: number;
   weeks: number;
+  editingValue?: boolean;
+  editingWeeks?: boolean;
 }
 
 interface ChartData {
@@ -45,6 +47,22 @@ const App = () => {
   };
 
   const removeBounty = (id: number) => setBounties(bounties.filter(b => b.id !== id));
+
+  const updateBountyValue = (id: number, newValue: number) => {
+    setBounties(bounties.map(b => b.id === id ? { ...b, value: newValue } : b));
+  };
+
+  const updateBountyWeeks = (id: number, newWeeks: number) => {
+    setBounties(bounties.map(b => b.id === id ? { ...b, weeks: newWeeks } : b));
+  };
+
+  const toggleEditValue = (id: number) => {
+    setBounties(bounties.map(b => b.id === id ? { ...b, editingValue: !b.editingValue } : b));
+  };
+
+  const toggleEditWeeks = (id: number) => {
+    setBounties(bounties.map(b => b.id === id ? { ...b, editingWeeks: !b.editingWeeks } : b));
+  };
 
   useEffect(() => {
     const newData: ChartData[] = [];
@@ -179,15 +197,49 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
                 </div>
                 <div className="max-h-[300px] overflow-y-auto space-y-2 pr-2">
                   {bounties.map((b) => (
-                    <div key={b.id} className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-100 group">
-                      <div className="text-xs">
+                    <div key={b.id} className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-100 group hover:border-blue-300 transition-colors">
+                      <div className="text-xs flex-1">
                         <p className="font-bold text-slate-700">{b.name}</p>
-                        <p className="text-slate-500">
-                          ${b.value.toLocaleString()} USD <span className="mx-1">•</span> 
-                          <span className="text-blue-600 font-medium">{b.weeks} Semanas base</span>
-                        </p>
+                        <div className="flex items-center gap-2 mt-1 flex-wrap">
+                          {b.editingValue ? (
+                            <input 
+                              type="number"
+                              value={b.value}
+                              onChange={(e) => updateBountyValue(b.id, Number(e.target.value))}
+                              onBlur={() => toggleEditValue(b.id)}
+                              autoFocus
+                              className="w-20 px-2 py-1 text-xs bg-white border border-blue-400 rounded outline-none focus:ring-1 focus:ring-blue-500"
+                            />
+                          ) : (
+                            <span 
+                              onClick={() => toggleEditValue(b.id)}
+                              className="cursor-pointer px-2 py-1 rounded hover:bg-blue-100 transition-colors"
+                            >
+                              ${b.value.toLocaleString()} USD
+                            </span>
+                          )}
+                          <span className="text-slate-400">•</span>
+                          {b.editingWeeks ? (
+                            <input 
+                              type="number"
+                              step="0.5"
+                              value={b.weeks}
+                              onChange={(e) => updateBountyWeeks(b.id, Number(e.target.value))}
+                              onBlur={() => toggleEditWeeks(b.id)}
+                              autoFocus
+                              className="w-16 px-2 py-1 text-xs bg-white border border-blue-400 rounded outline-none focus:ring-1 focus:ring-blue-500"
+                            />
+                          ) : (
+                            <span 
+                              onClick={() => toggleEditWeeks(b.id)}
+                              className="cursor-pointer px-2 py-1 rounded text-blue-600 font-medium hover:bg-blue-100 transition-colors"
+                            >
+                              {b.weeks} sem {mode === 'manual' ? `→ ${(b.weeks * agenticEfficiency).toFixed(1)} real` : '(⚡)'}
+                            </span>
+                          )}
+                        </div>
                       </div>
-                      <button onClick={() => removeBounty(b.id)} className="text-slate-300 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100">
+                      <button onClick={() => removeBounty(b.id)} className="text-slate-300 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100 shrink-0 ml-2">
                         <Trash2 size={16} />
                       </button>
                     </div>
