@@ -116,8 +116,50 @@ const App = () => {
   const finalDebt = data[data.length - 1]?.deuda || 0;
 
   const contractTemplates: Record<'manual' | 'agentic', string> = {
-    manual: `CLAUSULA DE SERVICIOS ARTESANALES: El prestador ejecutará el proyecto en hitos sucesivos. La Startup reconoce una deuda acumulativa basada en el tiempo estimado de entrega de ${manualTotalWeeks} semanas. La deuda se indexará a USD con un interés del ${monthlyInterest}% MENSUAL compensatorio por el diferimiento del pago. \n\nDEFINITION OF DONE (DoD): El hito individual se considerará 100% completado, entregado y su monto exigible al momento de aprobarse y ejecutarse el merge del Pull Request (PR) correspondiente en la rama principal (main/master) del repositorio acordado.`,
-    agentic: `CLAUSULA DE ENTREGA AGÉNTICA (HIGH-SPEED): El prestador utiliza un stack de IA para entregar el proyecto en un tiempo récord de ${estimatedDeliveryWeeks.toFixed(1)} semanas. La Startup reconoce que la deuda se origina por el VALOR DEL HITO y no por las horas invertidas. El recargo inicial del ${markup}% (Markup de Riesgo) compensa la velocidad del GTM (Go-to-Market). La deuda devengará un ${monthlyInterest}% MENSUAL. \n\nDEFINITION OF DONE (DoD): El hito individual se considerará 100% completado, entregado y su monto exigible al momento de aprobarse y ejecutarse el merge del Pull Request (PR) correspondiente en la rama principal (main/master) del repositorio acordado.`
+    manual: `## 1. OBJETO Y MODALIDAD "BOUNTY"
+El presente acuerdo regula el desarrollo de software bajo la modalidad de Bounties Atómicos. Las partes acuerdan que el valor del servicio reside en la entrega de hitos funcionales verificables.
+
+## 3. DEFINITION OF DONE (DoD) Y ACEPTACIÓN
+Un Bounty se considerará Entregado y Devengado en el momento en que el Pull Request (PR) correspondiente sea aprobado y fusionado (merged) en la rama principal (main/master) del repositorio.
+
+## 4. ESTRUCTURA FINANCIERA (PAGO DIFERIDO)
+El HUNTER acepta diferir el cobro de sus servicios bajo las siguientes condiciones:
+- Cada Bounty incluye un Markup de Riesgo del ${markup}% sobre el valor nominal
+- A partir de la fecha de cierre de cada PR, el monto devengará un Interés Mensual del ${monthlyInterest}% sobre el saldo insoluto
+
+## 5. NATURALEZA DE LA RELACIÓN Y EXCLUSIÓN DE EQUITY
+El presente acuerdo es de naturaleza estrictamente comercial y civil. La contraprestación consiste exclusivamente en el pago de la suma monetaria acordada (Principal + Markup + Intereses). NO representa participación accionaria, opciones de compra ni planes de vesting.
+
+## 6. COLATERAL Y PROPIEDAD INTELECTUAL
+- Licencia de Uso: LA STARTUP tendrá licencia de uso completa sobre el código desde el momento del merge
+- Transferencia de Titularidad: La propiedad intelectual se transferirá únicamente tras el pago total de la deuda acumulada
+
+MODALIDAD: Artesanal | Duración Estimada: ${manualTotalWeeks} semanas | Deuda Total Proyectada: $${finalDebt.toLocaleString()} USD`,
+    
+    agentic: `## 1. OBJETO Y MODALIDAD "BOUNTY"
+El presente acuerdo regula el desarrollo de software bajo la modalidad de Bounties Atómicos. Las partes acuerdan que el valor del servicio reside en la entrega de hitos funcionales verificables.
+
+## 2. METODOLOGÍA Y STACK AGÉNTICO
+EL HUNTER declara el uso de un Stack de Desarrollo Agéntico (IA Generativa, Orquestadores de Código y Agentes de Programación). Esta metodología permite una eficiencia proyectada de x${agenticEfficiency} sobre el desarrollo artesanal.
+
+El costo de cada Bounty es fijo y se basa en el valor de mercado del entregable, independientemente de que el uso de IA reduzca drásticamente las semanas de ejecución.
+
+## 3. DEFINITION OF DONE (DoD) Y ACEPTACIÓN
+Un Bounty se considerará Entregado y Devengado en el momento en que el Pull Request (PR) correspondiente sea aprobado y fusionado (merged) en la rama principal (main/master) del repositorio.
+
+## 4. ESTRUCTURA FINANCIERA (PAGO DIFERIDO)
+El HUNTER acepta diferir el cobro de sus servicios bajo las siguientes condiciones:
+- Cada Bounty incluye un Markup de Riesgo del ${markup}% sobre el valor nominal (compensa velocidad GTM y riesgo de crédito)
+- A partir de la fecha de cierre de cada PR, el monto devengará un Interés Mensual del ${monthlyInterest}% sobre el saldo insoluto, capitalizado mensualmente
+
+## 5. NATURALEZA DE LA RELACIÓN Y EXCLUSIÓN DE EQUITY
+El presente acuerdo es de naturaleza estrictamente comercial y civil. La contraprestación consiste exclusivamente en el pago de la suma monetaria acordada (Principal + Markup + Intereses). NO representa participación accionaria, acciones fantasma, opciones de compra ni planes de vesting.
+
+## 6. COLATERAL Y PROPIEDAD INTELECTUAL
+- Licencia de Uso: LA STARTUP tendrá licencia de uso completa sobre el código desde el momento del merge
+- Transferencia de Titularidad: La propiedad intelectual se transferirá únicamente tras el pago total de la deuda acumulada
+
+MODALIDAD: Agéntica (HIGH-SPEED) | Duración Estimada: ${estimatedDeliveryWeeks.toFixed(1)} semanas | Ahorro: ${(manualTotalWeeks - estimatedDeliveryWeeks).toFixed(1)} semanas vs Artesanal | Deuda Total Proyectada: $${finalDebt.toLocaleString()} USD`
   };
 
   const handleCopyContract = () => {
