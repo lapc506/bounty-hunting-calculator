@@ -184,9 +184,9 @@ TOTAL RECONOCIDO A FECHA DE CORTE (${gracePeriodWeeks} Semanas): $${finalDebt.to
           <div>
             <h1 className="text-3xl font-bold text-slate-900 flex items-center gap-2">
               <Cpu className={mode === 'agentic' ? "text-purple-600" : "text-slate-500"} size={32} />
-              Agéntic Hunter OS
+              Bounty Hunting Calculator
             </h1>
-            <p className="text-slate-600 mt-1">Valuación de Bounties Atómicos & Pago Diferido</p>
+            <p className="text-slate-600 mt-1">Valuación de bounties atómicos con pago diferido</p>
           </div>
           <div className="flex p-1 bg-slate-100 rounded-2xl w-fit border border-slate-200">
             <button onClick={() => setMode('manual')} className={`flex items-center gap-2 px-6 py-2 rounded-xl transition-all font-bold ${mode === 'manual' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500'}`}>

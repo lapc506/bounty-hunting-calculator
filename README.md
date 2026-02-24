@@ -1,6 +1,6 @@
-# Agéntic Hunter OS - Bounty Hunting Calculator
+# Bounty Hunting Calculator
 
-Cómo le paga una startup a sus early employees sin ceder equity? Esta calculadora responde a esa pregunta.
+Calculadora de valuación para bounties atómicos con pago diferido. ¿Cómo le paga una startup a sus early employees sin ceder equity? Esta calculadora responde a esa pregunta.
 
 Una app TypeScript + React con Vite, desplegable estáticamente en GitHub Pages.
 
