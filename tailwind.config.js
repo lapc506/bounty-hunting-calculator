@@ -8,7 +8,11 @@ export default withMT({
   ],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Ubuntu', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 });
